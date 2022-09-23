@@ -3,6 +3,9 @@ version: '3'
 services:
     nginx:
       build: ./requirements/Nginx/
+      container_name: nginx
       ports:
-          - "80:80"
+          - "443:443"
+      restart: always
+      
       
