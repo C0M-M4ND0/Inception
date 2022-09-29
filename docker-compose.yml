@@ -1,11 +1,29 @@
 version: '3'
 
 services:
-    nginx:
-      build: ./requirements/Nginx/
-      container_name: nginx
-      ports:
-          - "443:443"
+
+    # nginx:
+    #   build: ./requirements/Nginx/
+    #   container_name: nginx
+    #   ports:
+    #     - "443:443"
+    #   restart: always
+
+    # wordpress:
+    #   build: ./requirements/WordPress
+    #   container_name: wordpress
+    #   restart: always
+    #   ports:
+    #     - "9000:9000"
+    #   environment: ./env
+    #   depends_on:
+    #     - mariadb
+
+    mariadb:
+      build: ./requirements/MariaDB
+      container_name: mariadb
       restart: always
-      
-      
+      environment: 
+        - .env
+      ports:
+        - "3306:3306"
