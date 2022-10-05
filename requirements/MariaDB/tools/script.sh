@@ -8,6 +8,6 @@ echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';" >> 
 echo "flush privileges;" >> /tmp/mariadb.sql
 fi
 
-mysql_install_db
+mysql_install_db &> /dev/null
 service mysql start
 mysql -u root  < /tmp/mariadb.sql

@@ -48,10 +48,19 @@ RUN apk add --update --no-cache  \
     php7-xmlwriter		\
     php7-xsl			\
     php7-zip			\
-    php7-zlib	
+    php7-zlib 
 
 ADD tools/entry.sh /tmp/entry.sh
 RUN chmod +x /tmp/entry.sh
 ADD conf/wp-config.php /tmp/wp-config.php
 ADD conf/www.conf /tmp/www.conf
+
+ENV ADMIN_USER=""
+ENV ADMIN_EMAIL=""
+ENV USER_EMAIL=""
+ENV URL=""
+ENV TITLE=""
+ENV WORDPRESS_DB_USER=""
+ENV WORDPRESS_DB_PASSWORD=""
+
 ENTRYPOINT ["/tmp/entry.sh" ]
