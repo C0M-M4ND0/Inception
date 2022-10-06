@@ -42,11 +42,34 @@ services:
       restart: always
       ports:
         - "3306:3306"
+      env_file:
+        - .env
       volumes:
         - db_data:/var/lib/mysql
       networks:
         - network
-volumes:
+
+    redis:
+      build: ./requirements/Bonus/Redis
+      container_name: redis
+      restart: always
+      depends_on:
+        - wordpress
+      networks:
+        - network
+
+    ftp-server:
+      build: ./requirements/Bonus/Ftp-server
+      container_name: ftp
+      restart: always
+      depends_on:
+        - wordpress
+      volumes:
+        - wp_data:/var/wwww/html
+      networks:
+        - network
+
+volumes: 
   db_data:
   wp_data:
 

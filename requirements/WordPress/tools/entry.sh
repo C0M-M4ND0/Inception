@@ -27,6 +27,10 @@ wp user create --allow-root --path=/var/www/html $WORDPRESS_DB_USER $USER_EMAIL 
 else
     echo -e "\e[32mUser already exist\e[0m"
 fi
+#install redis cache for WordPress
+wp plugin install redis-cache --activate --allow-root --path=/var/www/html
+wp plugin update --all --allow-root --path=/var/www/html
+wp redis enable --allow-root --path=/var/www/html
 
 echo -e "\e[32mWordpress is Running now on port 9000\e[0m"
 /usr/sbin/php-fpm7 -F -R
