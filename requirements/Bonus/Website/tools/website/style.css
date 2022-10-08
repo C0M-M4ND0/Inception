@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(101, 156, 143);
+    place-items: center;
+}
+.container h1 {
+    color: rgb(22, 0, 216);
+    padding-left: 12%;
+    padding-top: 2%;
+}
+
+.container p {
+    font-size: x-large;
+    padding-left: 10%;
+    float: left;
+}
+
+.container img {
+    float: right;
+    max-width: 40%;
+    max-height: 100%;
+    padding-right: 6%;
+}
+
+.container li {
+    padding-left: 10%;
+}
+
+.container span{
+    color: rgb(4, 16, 127);
+}

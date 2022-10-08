@@ -55,6 +55,8 @@ services:
       restart: always
       depends_on:
         - wordpress
+      ports:
+        - "6379:6379"
       networks:
         - network
 
@@ -69,9 +71,35 @@ services:
         - "21:21"
         - "10090-10100:10090-10100"
       volumes:
-        - wp_data:/var/wwww/html
+        - wp_data:/var/www/html
       networks:
         - network
+
+    adminer: 
+      build: ./requirements/Bonus/Adminer
+      container_name: adminer
+      restart: always
+      depends_on:
+        - mariadb
+      ports:
+        - "7777:7777"
+      volumes:
+        - wp_data:/var/www/html
+      networks:
+        - network
+
+    website:
+      build: ./requirements/Bonus/Website
+      container_name: website
+      ports:
+        - "9999:9999"
+      depends_on:
+        - wordpress
+      networks:
+        - network
+      restart: always
+      volumes:
+        - wp_data:/var/www/html
 
 volumes: 
   db_data:

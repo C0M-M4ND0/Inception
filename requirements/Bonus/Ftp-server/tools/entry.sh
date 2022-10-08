@@ -5,11 +5,11 @@ if [ ! -d "/var/www/html" ]; then
 fi
 
 #add user for ftp 
-adduser $FTP_USR --disabled-password
-echo "$FTP_USR:$FTP_PSW" | /usr/sbin/chpasswd &> /dev/null
-chown -R $FTP_USR:$FTP_USR /var/www/html
-echo $FTP_USR | tee -a /etc/vsftpd.userlist &> /dev/null
+adduser $FTP_USR --disabled-password  > /dev/null 2>&1
+echo "$FTP_USR:$FTP_PSW" | /usr/sbin/chpasswd > /dev/null 2>&1
+chown -R $FTP_USR:$FTP_USR /var/www/html  > /dev/null 2>&1
+echo $FTP_USR >> /etc/vsftpd.userlist
 
 
-echo -e "\e[32mFTP started now on port 21\e[0m"
+echo -e "\e[32mFTP started now ...\e[0m"
 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
