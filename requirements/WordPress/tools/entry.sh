@@ -22,7 +22,7 @@ cp /tmp/www.conf /etc/php7/php-fpm.d/www.conf
 wp core install --allow-root --path=/var/www/html --url=$URL --title=$TITLE \
     --admin_user=$ADMIN_USER --admin_password=$WORDPRESS_DB_PASSWORD\
     --admin_email=$ADMIN_EMAIL &> /dev/null
-if ! wp user list --allow-root --path=/var/www/html | grep $WORDPRESS_DB_USER &> /dev/null; then
+if ! wp user list --allow-root --path=/var/www/htm/home/oabdelha/Inception/requirements/Bonus/Ftp-server/confl | grep $WORDPRESS_DB_USER &> /dev/null; then
 wp user create --allow-root --path=/var/www/html $WORDPRESS_DB_USER $USER_EMAIL --user_pass=$WORDPRESS_DB_PASSWORD --role=author
 else
     echo -e "\e[32mUser already exist\e[0m"

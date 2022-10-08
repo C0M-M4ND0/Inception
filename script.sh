@@ -1,4 +1,4 @@
-!#bin/bash
+#!/bin/bash
 docker-compose down
 docker image rm -f $(docker images | awk '{print $3}')
 docker container rm $(docker container ls -a | awk '{print $1}')

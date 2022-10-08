@@ -60,10 +60,14 @@ services:
 
     ftp-server:
       build: ./requirements/Bonus/Ftp-server
-      container_name: ftp
+      container_name: ftp-server
       restart: always
-      depends_on:
-        - wordpress
+      environment:
+        FTP_USR: ${FTP_USR}
+        FTP_PSW: ${FTP_PSW}
+      ports:
+        - "21:21"
+        - "10090-10100:10090-10100"
       volumes:
         - wp_data:/var/wwww/html
       networks:
