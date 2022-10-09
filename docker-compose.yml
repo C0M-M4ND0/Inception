@@ -100,6 +100,8 @@ services:
       restart: always
       volumes:
         - wp_data:/var/www/html
+    
+    
 
 volumes: 
   db_data:

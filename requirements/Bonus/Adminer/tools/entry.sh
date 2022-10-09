@@ -2,8 +2,9 @@
 
 if [ ! -d "/var/www/html/adminer" ]; then
 mkdir -p /var/www/html/adminer
+cd /var/www/html/adminer/
 #install admine from their official website
-wget -O index.php https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php /var/www/html/adminer
+wget -O index.php https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php > /dev/null 2>&1
 #change the permission of the downloaded file
 chmod -R 777 /var/www/html/adminer/
 fi
