@@ -1,30 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
 body {
-    background-color: rgb(101, 156, 143);
+    background-color: #0B1E2E;
     place-items: center;
+    display: grid;
+    height: 100vh;
 }
 .container h1 {
-    color: rgb(22, 0, 216);
-    padding-left: 12%;
-    padding-top: 2%;
+    color: rgb(255, 255, 255);
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 0.5%;
 }
 
 .container p {
     font-size: x-large;
-    padding-left: 10%;
-    float: left;
+    color: rgb(148, 140, 140);
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
 .container img {
-    float: right;
-    max-width: 40%;
-    max-height: 100%;
-    padding-right: 6%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.container h3 {
+    padding-left: 7%;
+    padding-right: 7%;
+    color: rgb(198, 198, 198);
 }
 
 .container li {
-    padding-left: 10%;
+    padding-left: 9%;
+    color: rgb(219, 202, 202);
+    font-size: large;
 }
 
-.container span{
-    color: rgb(4, 16, 127);
+.container h2 {
+    color: rgb(249, 249, 249);
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 0.5%;    
+}
+.creator {
+    padding-top: 3%;
+}
+.creator h1 {
+    padding-right: 10%;
+    padding-left: 65%;
+    padding-bottom: 2%;
+    color: aliceblue;
+}
+
+.creator span {
+    color: rgb(243, 9, 9);
 }
