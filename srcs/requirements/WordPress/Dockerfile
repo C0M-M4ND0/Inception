@@ -48,7 +48,7 @@ RUN apk add --update --no-cache  \
     php7-xmlwriter		\
     php7-xsl			\
     php7-zip			\
-    php7-zlib 
+    php7-zlib
 
 ADD tools/entry.sh /tmp/entry.sh
 RUN chmod +x /tmp/entry.sh
