@@ -10,4 +10,5 @@ chmod -R 777 /var/www/html/adminer/
 fi
 
 #to keep container runing
-php -S 0.0.0.0:7777
+echo -e "\e[32mADMINER is Running now ...\e[0m"
+php -S 0.0.0.0:7777 > /dev/null 2>&1

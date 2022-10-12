@@ -11,5 +11,5 @@ chown -R $FTP_USR:$FTP_USR /var/www/html  > /dev/null 2>&1
 echo $FTP_USR >> /etc/vsftpd.userlist
 
 
-echo -e "\e[32mFTP started now ...\e[0m"
+echo -e "\e[32mFTP sis Running now ... \e[0m"
 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf

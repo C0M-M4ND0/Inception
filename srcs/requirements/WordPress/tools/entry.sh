@@ -23,12 +23,12 @@ wp core install --allow-root --path=/var/www/html --url=$URL --title=$TITLE \
 if ! wp user list --allow-root --path=/var/www/html/ | grep $WORDPRESS_DB_USER > /dev/null 2>&1; then
 wp user create --allow-root --path=/var/www/html $WORDPRESS_DB_USER $USER_EMAIL --user_pass=$WORDPRESS_DB_PASSWORD --role=author > /dev/null 2>&1
 else
-    echo -e "\e[32mUser already exist\e[0m"
+    echo -e "\e[31mUser already exist\e[0m"
 fi
 #install redis cache for WordPress
 wp plugin install redis-cache --activate --allow-root --path=/var/www/html > /dev/null 2>&1
 wp plugin update --all --allow-root --path=/var/www/html > /dev/null 2>&1
 wp redis enable --allow-root --path=/var/www/html > /dev/null 2>&1
 
-echo -e "\e[32mWordpress is Running now on port 9000\e[0m"
+echo -e "\e[32mWORDPRESS is Running now ...\e[0m"
 /usr/sbin/php-fpm7 -F -R
