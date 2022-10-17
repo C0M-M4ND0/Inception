@@ -13,7 +13,6 @@ stop:
 
 clean: stop
 	@docker system prune -f -a
-	@docker rmi -f $$(docker images -qa)
 	@docker volume rm $$(docker volume ls -q)
 	@sudo rm -rf /home/oabdelha/data/
 	
