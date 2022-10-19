@@ -3,6 +3,7 @@ version: '3'
 services:
 
     nginx:
+      image: nginx
       build: ./requirements/Nginx/
       container_name: nginx
       restart: always
@@ -16,13 +17,12 @@ services:
         - network
 
     wordpress:
+      image: wordpress
       build: ./requirements/WordPress
       container_name: wordpress
       restart: always
       depends_on:
         - mariadb
-      ports:
-        - "9000:9000"
       environment:
         ADMIN_USER: ${ADMIN_USER}
         ADMIN_EMAIL: ${ADMIN_EMAIL}
@@ -37,6 +37,7 @@ services:
         - network
 
     mariadb:
+      image: mariadb
       build: 
         context: ./requirements/MariaDB
         args:
@@ -52,17 +53,17 @@ services:
         - network
 
     redis:
+      image: redis
       build: ./requirements/Bonus/Redis
       container_name: redis
       restart: always
       depends_on:
         - wordpress
-      ports:
-        - "6379:6379"
       networks:
         - network
 
     ftp-server:
+      image: ftp-server
       build: ./requirements/Bonus/Ftp-server
       container_name: ftp-server
       restart: always
@@ -77,24 +78,22 @@ services:
       networks:
         - network
 
-    adminer: 
+    adminer:
+      image: adminer
       build: ./requirements/Bonus/Adminer
       container_name: adminer
       restart: always
       depends_on:
         - mariadb
-      ports:
-        - "7777:7777"
       volumes:
         - wp_data:/var/www/html
       networks:
         - network
 
     website:
+      image: website
       build: ./requirements/Bonus/Website
       container_name: website
-      ports:
-        - "9999:9999"
       depends_on:
         - wordpress
       networks:
@@ -104,6 +103,7 @@ services:
         - wp_data:/var/www/html
     
     cadvisor:
+      image: cadvisor
       build: ./requirements/Bonus/Cadvisor
       container_name: cadvisor
       restart: always
@@ -115,9 +115,6 @@ services:
         - /sys:/sys:ro
         - /var/lib/docker/:/var/lib/docker:ro
         - /cgroup:/cgroup:ro
-      privileged: true
-      devices:
-        - /dev/kmsg:/dev/kmsg
       networks:
         - network
 
