@@ -13,7 +13,7 @@ stop:
 
 clean: stop
 	@docker system prune -f -a
-	@docker volume rm $$(docker volume ls -q)
+	@docker volume rm srcs_wp_data srcs_db_data
 	@sudo rm -rf /home/oabdelha/data/
 	
 re: clean all

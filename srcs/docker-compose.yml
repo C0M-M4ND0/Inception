@@ -14,7 +14,7 @@ services:
       volumes:
         - wp_data:/var/www/html
       networks:
-        - network
+        - network_One
 
     wordpress:
       image: wordpress
@@ -34,7 +34,8 @@ services:
       volumes:
         - wp_data:/var/www/html
       networks: 
-        - network
+        - network_One
+        - network_Two
 
     mariadb:
       image: mariadb
@@ -50,7 +51,7 @@ services:
       volumes:
         - db_data:/var/lib/mysql
       networks:
-        - network
+        - network_Two
 
     redis:
       image: redis
@@ -60,7 +61,7 @@ services:
       depends_on:
         - wordpress
       networks:
-        - network
+        - network_One
 
     ftp-server:
       image: ftp-server
@@ -76,7 +77,7 @@ services:
       volumes:
         - wp_data:/var/www/html
       networks:
-        - network
+        - network_One
 
     adminer:
       image: adminer
@@ -88,7 +89,7 @@ services:
       volumes:
         - wp_data:/var/www/html
       networks:
-        - network
+        - network_One
 
     website:
       image: website
@@ -97,7 +98,7 @@ services:
       depends_on:
         - wordpress
       networks:
-        - network
+        - network_One
       restart: always
       volumes:
         - wp_data:/var/www/html
@@ -116,7 +117,7 @@ services:
         - /var/lib/docker/:/var/lib/docker:ro
         - /cgroup:/cgroup:ro
       networks:
-        - network
+        - network_One
 
 volumes:
   wp_data:
@@ -135,5 +136,7 @@ volumes:
 
 
 networks:
-  network:
+  network_One:
+    driver: bridge
+  network_Two:
     driver: bridge
