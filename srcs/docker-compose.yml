@@ -116,8 +116,6 @@ services:
         - /sys:/sys:ro
         - /var/lib/docker/:/var/lib/docker:ro
         - /cgroup:/cgroup:ro
-      networks:
-        - network_One
 
 volumes:
   wp_data:
