@@ -1,4 +1,4 @@
-all: build
+all: build up
 
 build:
 	@docker-compose --env-file srcs/.env --file srcs/docker-compose.yml build
